@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Lab7
 {
@@ -86,8 +87,17 @@ namespace Lab7
             if (Pantalla.Text.Length != 0)
             {
                 operador = "+";
-                double.TryParse(Pantalla.Text, out primero);
-                Pantalla.Clear();
+                if (double.TryParse(Pantalla.Text, out primero))
+                {
+                    double.TryParse(Pantalla.Text, out primero);
+                    Pantalla.Clear();
+                }
+                else
+                {
+                    Pantalla.Text = "Sintax Error";
+                }
+
+
             }
         }
 
@@ -96,8 +106,16 @@ namespace Lab7
             if (Pantalla.Text.Length != 0)
             {
                 operador = "-";
-                double.TryParse(Pantalla.Text, out primero);
-                Pantalla.Clear();
+                if (double.TryParse(Pantalla.Text, out primero))
+                {
+                    double.TryParse(Pantalla.Text, out primero);
+                    Pantalla.Clear();
+                }
+                else
+                {
+                    Pantalla.Text = "Sintax Error";
+                }
+
             }
         }
 
@@ -106,8 +124,16 @@ namespace Lab7
             if (Pantalla.Text.Length != 0)
             {
                 operador = "*";
-                double.TryParse(Pantalla.Text, out primero);
-                Pantalla.Clear();
+                if (double.TryParse(Pantalla.Text, out primero))
+                {
+                    double.TryParse(Pantalla.Text, out primero);
+                    Pantalla.Clear();
+                }
+                else
+                {
+                    Pantalla.Text = "Sintax Error";
+                }
+
             }
         }
 
@@ -116,8 +142,16 @@ namespace Lab7
             if (Pantalla.Text.Length != 0)
             {
                 operador = "/";
-                double.TryParse(Pantalla.Text,out primero);
-                Pantalla.Clear();
+                if (double.TryParse(Pantalla.Text, out primero))
+                {
+                    double.TryParse(Pantalla.Text, out primero);
+                    Pantalla.Clear();
+                }
+                else
+                {
+                    Pantalla.Text = "Sintax Error";
+
+                }
             }
         }
 
@@ -153,10 +187,11 @@ namespace Lab7
                         {
                             resp = primero / segundo;
                             if (resp == double.PositiveInfinity || resp == double.NegativeInfinity)
-                                Pantalla.Text = "Sintax Error";
+                            { 
+                                Pantalla.Text = "Math Error";
+                            }
                             else
                                  Pantalla.Text = resp.ToString();
-
                             break;
                         }
 
