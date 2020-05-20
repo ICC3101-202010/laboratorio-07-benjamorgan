@@ -17,6 +17,7 @@ namespace Lab7
         double segundo =0;
         double resp = 0;
         string operador = "+";
+        List<string> hist = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -117,6 +118,8 @@ namespace Lab7
                 }
 
             }
+            else
+                Pantalla.Text = "-";
         }
 
         private void btnpor_Click(object sender, EventArgs e)
@@ -159,48 +162,62 @@ namespace Lab7
         {
             if (Pantalla.Text.Length != 0)
             {
-                double.TryParse(Pantalla.Text, out segundo);
-                //segundo = double.Parse(Pantalla.Text);
-                switch (operador)
+                if (double.TryParse(Pantalla.Text, out segundo))
                 {
-                    case "+":
-                        {
-                            resp = primero + segundo;
-                            Pantalla.Text = resp.ToString();
-                            break;
-                        }
-                    case "-":
-                        {
-                            resp = primero - segundo;
-                            Pantalla.Text = resp.ToString();
-
-                            break;
-                        }
-                    case "*":
-                        {
-                            resp = primero * segundo;
-                            Pantalla.Text = resp.ToString();
-
-                            break;
-                        }
-                    case "/":
-                        {
-                            resp = primero / segundo;
-                            if (resp == double.PositiveInfinity || resp == double.NegativeInfinity)
-                            { 
-                                Pantalla.Text = "Math Error";
+                    double.TryParse(Pantalla.Text, out segundo);
+                
+                //segundo = double.Parse(Pantalla.Text);
+                    switch (operador)
+                    {
+                        case "+":
+                            {
+                                resp = primero + segundo;
+                                Pantalla.Text = resp.ToString();
+                                hist.Add(primero.ToString() + " " + operador + " " + segundo.ToString() + " = " + resp);
+                                break;
                             }
-                            else
-                                 Pantalla.Text = resp.ToString();
-                            break;
-                        }
+                        case "-":
+                            {
 
-                    default:
-                        break;
+                                 resp = primero - segundo;
+                                 Pantalla.Text = resp.ToString();
+                                 hist.Add(primero.ToString() + " " + operador + " " + segundo.ToString() + " = " + resp);
+
+
+                                break;
+                            }
+                        case "*":
+                            {
+                                resp = primero * segundo;
+                                Pantalla.Text = resp.ToString();
+                                hist.Add(primero.ToString() + " " + operador + " " + segundo.ToString() + " = " + resp);
+
+                                break;
+                            }
+                        case "/":
+                            {
+                                resp = primero / segundo;
+                                if (resp == double.PositiveInfinity || resp == double.NegativeInfinity)
+                                {
+                                    Pantalla.Text = "Math Error";
+                                }
+                                else
+                                {
+                                    Pantalla.Text = resp.ToString();
+                                    hist.Add(primero.ToString() + " "+operador+" " + segundo.ToString() + " = " + resp);
+                                }
+                                break;
+                            }
+
+                        default:
+                            break;
+                    }
                 }
+                else
+                    Pantalla.Text = "Sintax Error";
             }
             else
-                Pantalla.Text = Pantalla.Text;
+                Pantalla.Text = Pantalla.Text ;
             
         }
 
@@ -225,6 +242,26 @@ namespace Lab7
         private void btnans_Click(object sender, EventArgs e)
         {
             Pantalla.Text = Pantalla.Text + resp.ToString();
+        }
+
+        private void btnhist_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            for (int i = 0; i < hist.Count(); i++)
+            {
+                Textbox_Historial.Text += hist[i] + Environment.NewLine ;
+            }
+
+        }
+
+        private void btnvolver_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

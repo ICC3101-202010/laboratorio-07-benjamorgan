@@ -49,6 +49,11 @@
             this.Pantalla = new System.Windows.Forms.TextBox();
             this.btnhist = new System.Windows.Forms.Button();
             this.btnpunto = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnvolver = new System.Windows.Forms.Button();
+            this.Textbox_Historial = new System.Windows.Forms.TextBox();
+            this.Hist_Text = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn7
@@ -249,6 +254,7 @@
             this.btnhist.TabIndex = 19;
             this.btnhist.Text = "Historial";
             this.btnhist.UseVisualStyleBackColor = true;
+            this.btnhist.Click += new System.EventHandler(this.btnhist_Click);
             // 
             // btnpunto
             // 
@@ -260,11 +266,55 @@
             this.btnpunto.UseVisualStyleBackColor = true;
             this.btnpunto.Click += new System.EventHandler(this.button20_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Hist_Text);
+            this.panel1.Controls.Add(this.Textbox_Historial);
+            this.panel1.Controls.Add(this.btnvolver);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(459, 549);
+            this.panel1.TabIndex = 21;
+            this.panel1.Visible = false;
+            // 
+            // btnvolver
+            // 
+            this.btnvolver.Location = new System.Drawing.Point(290, 433);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(135, 39);
+            this.btnvolver.TabIndex = 22;
+            this.btnvolver.Text = "Volver";
+            this.btnvolver.UseVisualStyleBackColor = true;
+            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
+            // 
+            // Textbox_Historial
+            // 
+            this.Textbox_Historial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Textbox_Historial.Location = new System.Drawing.Point(20, 49);
+            this.Textbox_Historial.Multiline = true;
+            this.Textbox_Historial.Name = "Textbox_Historial";
+            this.Textbox_Historial.ReadOnly = true;
+            this.Textbox_Historial.Size = new System.Drawing.Size(405, 358);
+            this.Textbox_Historial.TabIndex = 23;
+            // 
+            // Hist_Text
+            // 
+            this.Hist_Text.AutoSize = true;
+            this.Hist_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.Hist_Text.Location = new System.Drawing.Point(15, 9);
+            this.Hist_Text.Name = "Hist_Text";
+            this.Hist_Text.Size = new System.Drawing.Size(105, 29);
+            this.Hist_Text.TabIndex = 24;
+            this.Hist_Text.Text = "Historial";
+            this.Hist_Text.Click += new System.EventHandler(this.label1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 549);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnpunto);
             this.Controls.Add(this.btnhist);
             this.Controls.Add(this.Pantalla);
@@ -288,6 +338,8 @@
             this.Controls.Add(this.btn7);
             this.Name = "Form1";
             this.Text = " ";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,6 +368,10 @@
         private System.Windows.Forms.TextBox Pantalla;
         private System.Windows.Forms.Button btnhist;
         private System.Windows.Forms.Button btnpunto;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnvolver;
+        private System.Windows.Forms.Label Hist_Text;
+        private System.Windows.Forms.TextBox Textbox_Historial;
     }
 }
 
