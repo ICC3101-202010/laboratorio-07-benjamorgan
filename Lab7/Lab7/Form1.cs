@@ -176,11 +176,26 @@ namespace Lab7
             {
 
                 operador = "/";
-                if (double.TryParse(Pantalla.Text, out primero))
+                if (primero2 != 0)
                 {
-                    double.TryParse(Pantalla.Text, out primero);
-                    Pantalla.Clear();
+                    if (double.TryParse(Pantalla.Text, out primero2))
+                    {
+
+                        primero = primero / double.Parse(Pantalla.Text);
+                        Pantalla.Clear();
+                    }
                 }
+                else if (primero2 == 0)
+                {
+                    if (double.TryParse(Pantalla.Text, out primero2))
+                    {
+                        primero += primero2;
+                        double.TryParse(Pantalla.Text, out primero2);
+                        Pantalla.Clear();
+                    }
+                }
+
+                
                 else
                 {
                     Pantalla.Text = "Sintax Error";
