@@ -50,9 +50,10 @@
             this.btnhist = new System.Windows.Forms.Button();
             this.btnpunto = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnvolver = new System.Windows.Forms.Button();
-            this.Textbox_Historial = new System.Windows.Forms.TextBox();
             this.Hist_Text = new System.Windows.Forms.Label();
+            this.Textbox_Historial = new System.Windows.Forms.TextBox();
+            this.btnvolver = new System.Windows.Forms.Button();
+            this.btnBorrarHist = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -268,35 +269,16 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnBorrarHist);
             this.panel1.Controls.Add(this.Hist_Text);
-            this.panel1.Controls.Add(this.Textbox_Historial);
             this.panel1.Controls.Add(this.btnvolver);
+            this.panel1.Controls.Add(this.Textbox_Historial);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(459, 549);
             this.panel1.TabIndex = 21;
             this.panel1.Visible = false;
-            // 
-            // btnvolver
-            // 
-            this.btnvolver.Location = new System.Drawing.Point(290, 433);
-            this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(135, 39);
-            this.btnvolver.TabIndex = 22;
-            this.btnvolver.Text = "Volver";
-            this.btnvolver.UseVisualStyleBackColor = true;
-            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
-            // 
-            // Textbox_Historial
-            // 
-            this.Textbox_Historial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Textbox_Historial.Location = new System.Drawing.Point(20, 49);
-            this.Textbox_Historial.Multiline = true;
-            this.Textbox_Historial.Name = "Textbox_Historial";
-            this.Textbox_Historial.ReadOnly = true;
-            this.Textbox_Historial.Size = new System.Drawing.Size(405, 358);
-            this.Textbox_Historial.TabIndex = 23;
             // 
             // Hist_Text
             // 
@@ -308,6 +290,36 @@
             this.Hist_Text.TabIndex = 24;
             this.Hist_Text.Text = "Historial";
             this.Hist_Text.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // Textbox_Historial
+            // 
+            this.Textbox_Historial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Textbox_Historial.Location = new System.Drawing.Point(20, 49);
+            this.Textbox_Historial.Multiline = true;
+            this.Textbox_Historial.Name = "Textbox_Historial";
+            this.Textbox_Historial.ReadOnly = true;
+            this.Textbox_Historial.Size = new System.Drawing.Size(405, 358);
+            this.Textbox_Historial.TabIndex = 23;
+            // 
+            // btnvolver
+            // 
+            this.btnvolver.Location = new System.Drawing.Point(290, 433);
+            this.btnvolver.Name = "btnvolver";
+            this.btnvolver.Size = new System.Drawing.Size(135, 39);
+            this.btnvolver.TabIndex = 22;
+            this.btnvolver.Text = "Volver";
+            this.btnvolver.UseVisualStyleBackColor = true;
+            this.btnvolver.Click += new System.EventHandler(this.btnvolver_Click);
+            // 
+            // btnBorrarHist
+            // 
+            this.btnBorrarHist.Location = new System.Drawing.Point(34, 431);
+            this.btnBorrarHist.Name = "btnBorrarHist";
+            this.btnBorrarHist.Size = new System.Drawing.Size(138, 41);
+            this.btnBorrarHist.TabIndex = 25;
+            this.btnBorrarHist.Text = "Borrar historial";
+            this.btnBorrarHist.UseVisualStyleBackColor = true;
+            this.btnBorrarHist.Click += new System.EventHandler(this.btnBorrarHist_Click);
             // 
             // Form1
             // 
@@ -372,6 +384,7 @@
         private System.Windows.Forms.Button btnvolver;
         private System.Windows.Forms.Label Hist_Text;
         private System.Windows.Forms.TextBox Textbox_Historial;
+        private System.Windows.Forms.Button btnBorrarHist;
     }
 }
 

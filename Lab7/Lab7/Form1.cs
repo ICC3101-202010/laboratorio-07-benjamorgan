@@ -18,6 +18,7 @@ namespace Lab7
         double resp = 0;
         string operador = "+";
         List<string> hist = new List<string>();
+        double primero2 = 0;
         public Form1()
         {
             InitializeComponent();
@@ -87,10 +88,11 @@ namespace Lab7
         {
             if (Pantalla.Text.Length != 0)
             {
+                double primero2 = 0;
                 operador = "+";
-                if (double.TryParse(Pantalla.Text, out primero))
-                {
-                    double.TryParse(Pantalla.Text, out primero);
+                if (double.TryParse(Pantalla.Text, out primero2))
+                {                    
+                    primero += primero2;
                     Pantalla.Clear();
                 }
                 else
@@ -107,10 +109,24 @@ namespace Lab7
             if (Pantalla.Text.Length != 0)
             {
                 operador = "-";
-                if (double.TryParse(Pantalla.Text, out primero))
+
+                if (  primero2 ==0)
                 {
-                    double.TryParse(Pantalla.Text, out primero);
-                    Pantalla.Clear();
+                    if (double.TryParse(Pantalla.Text, out primero2))
+                    {
+                        primero += primero2;
+                        Pantalla.Clear();
+                    }
+                }
+                else if (primero2 !=0)
+                {
+                    if (double.TryParse(Pantalla.Text, out primero2))
+                    {
+
+
+                        primero -= primero2;
+                        Pantalla.Clear();
+                    }
                 }
                 else
                 {
@@ -127,11 +143,25 @@ namespace Lab7
             if (Pantalla.Text.Length != 0)
             {
                 operador = "*";
-                if (double.TryParse(Pantalla.Text, out primero))
+                if (primero2 != 0)
                 {
-                    double.TryParse(Pantalla.Text, out primero);
-                    Pantalla.Clear();
+                    if (double.TryParse(Pantalla.Text, out primero2))
+                    {
+
+                        primero = primero * double.Parse(Pantalla.Text);
+                        Pantalla.Clear();
+                    }
                 }
+                else if (primero2 == 0)
+                {
+                    if (double.TryParse(Pantalla.Text, out primero2))
+                    {
+                        primero += primero2;
+                        double.TryParse(Pantalla.Text,out primero2);
+                        Pantalla.Clear();
+                    }
+                }
+
                 else
                 {
                     Pantalla.Text = "Sintax Error";
@@ -144,6 +174,7 @@ namespace Lab7
         {
             if (Pantalla.Text.Length != 0)
             {
+
                 operador = "/";
                 if (double.TryParse(Pantalla.Text, out primero))
                 {
@@ -205,6 +236,8 @@ namespace Lab7
                                 {
                                     Pantalla.Text = resp.ToString();
                                     hist.Add(primero.ToString() + " "+operador+" " + segundo.ToString() + " = " + resp);
+                                    primero = 0;
+                                    segundo = 0;
                                 }
                                 break;
                             }
@@ -223,6 +256,9 @@ namespace Lab7
 
         private void btnac_Click(object sender, EventArgs e)
         {
+            primero = 0;
+            primero2 = 0;
+            segundo = 0;
             Pantalla.Clear();
         }
 
@@ -247,9 +283,10 @@ namespace Lab7
         private void btnhist_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
+            Textbox_Historial.Clear();
             for (int i = 0; i < hist.Count(); i++)
             {
-                Textbox_Historial.Text += hist[i] + Environment.NewLine ;
+                Textbox_Historial.Text += hist[i] + Environment.NewLine;
             }
 
         }
@@ -262,6 +299,13 @@ namespace Lab7
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBorrarHist_Click(object sender, EventArgs e)
+        {
+            Textbox_Historial.Clear();
+            hist.Clear();
+            
         }
     }
 }
